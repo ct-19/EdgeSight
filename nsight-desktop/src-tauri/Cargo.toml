@@ -1,0 +1,22 @@
+[package]
+name = "nsight-macos"
+version = "0.2.0"
+description = "Mission EdgeSight tactical intelligence, local AI macOS app"
+authors = ["Mission EdgeSight"]
+edition = "2021"
+
+[lib]
+name = "nsight_macos_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["macos-private-api"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "http2"] }
+url = "2"
+keyring = { version = "3", features = ["apple-native"] }
+tokio = { version = "1", features = ["sync"] }

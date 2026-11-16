@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "nSIght",
+  "version": "0.2.0",
+  "identifier": "com.nightpet",
+  "build": {
+    "beforeDevCommand": "npm run dev:ui",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "nSIght",
+        "width": 420,
+        "height": 650,
+        "minWidth": 170,
+        "minHeight": 180,
+        "maxWidth": 700,
+        "maxHeight": 950,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "center": true,
+        "visible": true,
+        "focus": true,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: http://asset.localhost; style-src 'self' 'unsafe-inline'; connect-src 'self' ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg"
+    ],
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.icns"
+    ]
+  }
+}
